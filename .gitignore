@@ -1,0 +1,23 @@
+```
+# Environment variables
+.env
+
+# Dependencies
+vendor/
+composer.lock
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+```
