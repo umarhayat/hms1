@@ -1,0 +1,38 @@
+```
+# CodeIgniter specific ignores
+app/Cache/
+app/Logs/
+app/Session/
+app/Temp/
+writable/cache/
+writable/logs/
+writable/session/
+writable/uploads/
+
+# Dependencies
+vendor/
+composer.lock
+
+# Environment
+.env
+.env.local
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts
+build/
+dist/
+target/
+```
