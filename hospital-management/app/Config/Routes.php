@@ -17,11 +17,12 @@ $routes->get('reports/analytics', 'Dashboard::analytics');
 $routes->group('patients', ['namespace' => 'App\Controllers'], function($routes) {
     $routes->get('', 'Patients::index');
     $routes->get('create', 'Patients::create');
-    $routes->post('store', 'Patients::store');
-    $routes->get('edit/(:num)', 'Patients::edit/$1');
-    $routes->post('update/(:num)', 'Patients::update/$1');
-    $routes->get('view/(:num)', 'Patients::view/$1');
-    $routes->delete('delete/(:num)', 'Patients::delete/$1');
+    $routes->post('', 'Patients::store');
+    $routes->get('(:num)', 'Patients::show/$1');
+    $routes->get('(:num)/edit', 'Patients::edit/$1');
+    $routes->put('(:num)', 'Patients::update/$1');
+    $routes->delete('(:num)', 'Patients::delete/$1');
+    $routes->get('search', 'Patients::search');
 });
 
 // Doctors
@@ -56,6 +57,19 @@ $routes->group('medical-records', ['namespace' => 'App\Controllers'], function($
     $routes->post('update/(:num)', 'MedicalRecords::update/$1');
     $routes->get('view/(:num)', 'MedicalRecords::view/$1');
     $routes->post('ai-analyze/(:num)', 'MedicalRecords::aiAnalyze/$1');
+});
+
+// OPD Module
+$routes->group('opd', ['namespace' => 'App\Controllers'], function($routes) {
+    $routes->get('', 'OpdController::index');
+    $routes->get('create', 'OpdController::create');
+    $routes->post('store', 'OpdController::store');
+    $routes->get('(:num)', 'OpdController::show/$1');
+    $routes->get('(:num)/edit', 'OpdController::edit/$1');
+    $routes->post('(:num)/update', 'OpdController::update/$1');
+    $routes->post('(:num)/status', 'OpdController::updateStatus/$1');
+    $routes->get('search/patients', 'OpdController::searchPatients');
+    $routes->get('(:num)/prescription', 'OpdController::prescription/$1');
 });
 
 // Auth
